@@ -43,6 +43,6 @@ jobs:
           sudo docker login -u AWS -p $(aws ecr get-login-password --region ap-south-1) 730335304698.dkr.ecr.ap-south-1.amazonaws.com
           sudo docker pull 730335304698.dkr.ecr.ap-south-1.amazonaws.com/fastapiapp:latest
           sudo docker stop fastapiapp || true && sudo docker rm fastapiapp || true
-          sudo docker run -d -p 80:80 --name fastapiapp 730335304698.dkr.ecr.ap-south-1.amazonaws.com/fastapiapp:latest
+          sudo docker run -d -p 8000:80 --name fastapiapp 730335304698.dkr.ecr.ap-south-1.amazonaws.com/fastapiapp:latest
 
 
