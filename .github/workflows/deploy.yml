@@ -50,15 +50,7 @@ jobs:
             sudo systemctl enable docker
           fi
 
-          # Install AWS CLI if not present
-          if ! command -v aws &> /dev/null
-          then
-            echo "Installing AWS CLI..."
-            curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
-            unzip awscliv2.zip
-            sudo ./aws/install
-          fi
-
+         
           # Docker login & deploy
           sudo docker login -u AWS -p $(aws ecr get-login-password --region ap-south-1) <your-account-id>.dkr.ecr.ap-south-1.amazonaws.com
           sudo docker pull <your-account-id>.dkr.ecr.ap-south-1.amazonaws.com/fastapiapp:latest
